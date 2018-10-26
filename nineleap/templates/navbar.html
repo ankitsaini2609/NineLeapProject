@@ -1,0 +1,20 @@
+{% load staticfiles %}
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="#"><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'table' %}">Table View</a></li>
+      <li><a href="{% url 'listv' %}">List View</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      {% if request.user.is_authenticated %}
+      <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
+      </li>
+      {% else %}
+        <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>

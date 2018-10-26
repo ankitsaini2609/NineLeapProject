@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+	{% if user.is_staff or user.is_superuser %}
+		<h1>Hi {{ user.username }} </h1>
+		<a href="{% url 'add' %}" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-plus"></span> Add Employee 
+        </a>
+
+	{% else %}
+		<p> You are not logged in </p>
+	{% endif %}
+{% endblock %}
